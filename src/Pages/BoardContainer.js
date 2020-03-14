@@ -21,7 +21,7 @@ function BoardCard({ board }) {
     return (
         <div className="board-card">
             <img src={board.cocktail} alt="cocktail-image"/>
-            <h3>{board.user.username} from Mod {board.user.mod}</h3>
+            <h3>{board.user.username} was here!</h3>
             <h6>{board.message}</h6>
         </div>
     )

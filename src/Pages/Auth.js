@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function Auth() {
     const user = useSelector(state => state.user)
-    console.log('user from the store =============> ', user);
+    console.log('user from the store ===> ', user);
 
     const [login, setLogin] = useState(true)
     const [form, setForm] = useState({ username: "", password: "" })
@@ -41,32 +41,33 @@ export default function Auth() {
     function changeFormBtn() {
         return login ? (
             <button onClick={() => setLogin(false)}>
-                First time here? Please sign up! 
+                Don't have an account? Sign up
             </button>
         ) : (
             <button onClick={() => setLogin(true)}>
-                Already have an account with the Flatiron Chill Lounge? Log in here
+                Already have an account? Log in here
             </button>
         )
     }
 
     return (
         <div className="form-page">
-            <h1>{login ? "Log In" : "Sign Up"}</h1>
+            <h1>Flatiron Chill Lounge</h1>
             <form onSubmit={handleSubmit}>
+                <h3>{login ? "LOG IN" : "SIGN UP"}</h3>
                 <input type="text" 
                        name="username"
-                       placeholder="Enter your username"
+                       placeholder="Username"
                        value={form.username}
                        onChange={handleChange}/>
                 <input type="password" 
                        name="password"
-                       placeholder="Enter your password"
+                       placeholder="Password"
                        value={form.password}
                        onChange={handleChange}/>
                 <input type="submit" />
+                {changeFormBtn()}
             </form>
-            {changeFormBtn()}
         </div>
     )
 
