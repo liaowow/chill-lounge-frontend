@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routes from './Pages'
+import Nav from './Components/Nav'
+import { useDispatch } from 'react-redux'
 
-function App() {
+export default function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    fetch('http://localhost:3000/boards')
+      .then(r => r.json())
+      .then(boards => {
+        const action = {
+          type: 'SET_BOARDS',
+          payload: boards
+        }
+        dispatch(action)
+      })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Nav />
+      <Routes />
+    </Router>
   );
 }
-
-export default App;
