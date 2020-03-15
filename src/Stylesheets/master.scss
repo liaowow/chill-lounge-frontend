@@ -63,7 +63,6 @@ a {
 }
 
 nav {
-  position: fixed;
   display: flex;
   justify-content: space-evenly;
   background-color: #262626c7;
@@ -144,8 +143,8 @@ nav {
   justify-content: center;
   height: 35vw;
   width: 20vw;
-  background-color: rgba(62, 65, 66, 0.562);
-  color: #eee;
+  background-color: white;
+  color: rgba(62, 65, 66, 0.562);
   img {
     width: 90%;
   }

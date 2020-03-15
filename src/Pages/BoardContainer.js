@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
+import Nav from '../Components/Nav'
 
 export default function Boards() {
     const boards = useSelector(state => state.boards)
@@ -9,9 +10,12 @@ export default function Boards() {
     }
 
     return (
-        <div className="board-container">
-            {/* <h1>Messages across the Chill Lounge</h1> */}
-            {renderBoards()}
+        <div>
+            <Nav />
+            <div className="board-container">
+                {/* <h1>Messages across the Chill Lounge</h1> */}
+                {renderBoards()}
+            </div>
         </div>
     )
 
@@ -20,7 +24,7 @@ export default function Boards() {
 function BoardCard({ board }) {
     return (
         <div className="board-card">
-            <img src={board.cocktail} alt="cocktail-image"/>
+            <img src={board.cocktail} alt={board.cocktail} />
             <h3>{board.user.username} was here!</h3>
             <h6>{board.message}</h6>
         </div>

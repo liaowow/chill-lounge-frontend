@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './Pages'
-import Nav from './Components/Nav'
 import { useDispatch } from 'react-redux'
 
 export default function App() {
@@ -18,11 +17,10 @@ export default function App() {
         }
         dispatch(action)
       })
-  }, [])
+  })
 
   return (
     <Router>
-      <Nav />
       <Routes />
     </Router>
   );

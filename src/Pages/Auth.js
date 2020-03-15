@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Guide from './GuideContainer'
 
 export default function Auth() {
     const user = useSelector(state => state.user)
@@ -35,8 +36,12 @@ export default function Auth() {
                     type: "SET_USER",
                     payload: userData
                 })
+                
+                return <Guide user={user} />
             })
+
     }
+        
 
     function changeFormBtn() {
         return login ? (
@@ -65,7 +70,7 @@ export default function Auth() {
                        placeholder="Password"
                        value={form.password}
                        onChange={handleChange}/>
-                <input type="submit" />
+                <input type="submit" value="ENTER" />
                 {changeFormBtn()}
             </form>
         </div>
