@@ -6,12 +6,10 @@
 }
 
 
-// $easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
 h1 {
   color:white;
   font-size:6em;
   text-align:center;
-  // animation: neonGlow 2s infinite alternate $easeInOutQuad;
   text-shadow: 0 0 2px rgba(255,255,255,.8),
                0 0 8px rgba(255,255,255,.8),
                0 0 10px rgba(255,255,255,.8),
@@ -21,29 +19,6 @@ h1 {
                0 0 50px rgba(66,220,219,.5),
                0 0 60px rgba(66,220,219,.5);
 }
-// @keyframes neonGlow {
-//   0% {
-//     text-shadow: 0 0 10px rgba(255,255,255,.8),
-//                  0 0 20px rgba(255,255,255,.8),
-//                  0 0 22px  rgba(255,255,255,.8),
-//                  0 0 40px  rgba(66,220,219,.8),
-//                  0 0 60px  rgba(66,220,219,.8),
-//                  0 0 80px  rgba(66,220,219,.5),
-//                  0 0 100px rgba(66,220,219,.5),
-//                  0 0 140px rgba(66,220,219,.5),
-//                  0 0 200px rgba(66,220,219,.5);
-//   }
-//   100% {
-//     text-shadow: 0 0 2px rgba(255,255,255,.8),
-//                  0 0 8px rgba(255,255,255,.8),
-//                  0 0 10px rgba(255,255,255,.8),
-//                  0 0 20px rgba(66,220,219,.8),
-//                  0 0 30px rgba(66,220,219,.8),
-//                  0 0 40px rgba(66,220,219,.8),
-//                  0 0 50px rgba(66,220,219,.5),
-//                  0 0 80px rgba(66,220,219,.5);
-//   }
-// }
 
 html,
 body,
@@ -120,6 +95,50 @@ nav {
     margin: 5px;
     border: 0;
     border-radius: 30px;
+  }
+  button:hover{
+    background: #262626c7;
+    color: white;
+  }
+}
+
+.guide-container {
+  background: white;
+  color: #262626;
+  text-align: center;
+  padding: 2em;
+  margin: 0 auto;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // height: 70%;
+  width: 50%;
+
+  h2 {
+    font-size: 2em;
+    text-align:center;
+    margin-bottom: 1em;
+  }
+
+  h3 {
+    text-align:center;
+    margin-bottom: 1em;
+  }
+
+  p {
+    width: 80%;
+  }
+
+  button {
+    width: 70%;
+    height: 10%;
+    padding: 10px;
+    margin: 5px;
+    border: 0.5;
+    border-radius: 30px;
+    font-size: 1em;
   }
   button:hover{
     background: #262626c7;

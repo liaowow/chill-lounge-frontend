@@ -28,22 +28,26 @@ export default function Auth() {
             body: JSON.stringify(form)
         }
 
-        fetch("http://localhost:3000/" + endpoint, config)
-            .then(r => r.json())
-            .then(userData => {
-                localStorage.token = userData.token
-                dispatch({
-                    type: "SET_USER",
-                    payload: userData
+        return fetch("http://localhost:3000/" + endpoint, config)
+                .then(r => r.json())
+                .then(userData => {
+                    if (userData.errors) {
+                        alert(userData.errors)
+                    }
+
+                    localStorage.token = userData.token
+                    dispatch({
+                        type: "SET_USER",
+                        payload: userData
+                    })
+                    
+                    return <Guide user={user} />
                 })
-                
-                return <Guide user={user} />
-            })
 
     }
         
 
-    function changeFormBtn() {
+    function toggleLogInBtn() {
         return login ? (
             <button onClick={() => setLogin(false)}>
                 Don't have an account? Sign up
@@ -70,8 +74,8 @@ export default function Auth() {
                        placeholder="Password"
                        value={form.password}
                        onChange={handleChange}/>
-                <input type="submit" value="ENTER" />
-                {changeFormBtn()}
+                <input type="submit" value="Submit" />
+                {toggleLogInBtn()}
             </form>
         </div>
     )
