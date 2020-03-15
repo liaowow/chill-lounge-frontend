@@ -11,7 +11,7 @@ export default function Routes() {
         <Switch>
             <Route exact path="/" component={Auth} />
             <Route exact path="/guide" component={Guide} />
-            {/* <Route exact path="/results" component={Results} /> */}
+            <Route exact path="/results" component={Results} />
             <Route exact path="/boards" component={Boards} />
         </Switch>
     )

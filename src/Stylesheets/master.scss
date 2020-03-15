@@ -103,7 +103,7 @@ nav {
 }
 
 .guide-container {
-  background: white;
+  background: rgba(255, 255, 255, 0.87);
   color: #262626;
   text-align: center;
   padding: 2em;
@@ -144,6 +144,20 @@ nav {
     background: #262626c7;
     color: white;
   }
+}
+
+.result-wrapper {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 2em;
+}
+
+.result-calendar {
+  padding: 1em;
+}
+
+.result-report {
+  padding: 1em;
 }
 
 .board-container {
