@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import Guide from './GuideContainer'
+import { useHistory } from 'react-router-dom'
 
 export default function Auth() {
     const user = useSelector(state => state.user)
@@ -9,6 +9,7 @@ export default function Auth() {
     const [login, setLogin] = useState(true)
     const [form, setForm] = useState({ username: "", password: "" })
     const dispatch = useDispatch()
+    const history = useHistory()
 
     function handleChange(e) {
         setForm({ 
@@ -28,7 +29,7 @@ export default function Auth() {
             body: JSON.stringify(form)
         }
 
-        return fetch("http://localhost:3000/" + endpoint, config)
+        fetch("http://localhost:3000/" + endpoint, config)
                 .then(r => r.json())
                 .then(userData => {
                     if (userData.errors) {
@@ -41,8 +42,8 @@ export default function Auth() {
                         payload: userData
                     })
                     
-                    return <Guide user={user} />
-                })
+                    history.push("/guide")
+        })
 
     }
         
@@ -75,8 +76,8 @@ export default function Auth() {
                        value={form.password}
                        onChange={handleChange}/>
                 <input type="submit" value="Submit" />
-                {toggleLogInBtn()}
             </form>
+            {toggleLogInBtn()}
         </div>
     )
 
