@@ -7,7 +7,7 @@ export default function Auth() {
     console.log('user from the store ===> ', user);
 
     const [login, setLogin] = useState(true)
-    const [form, setForm] = useState({ username: "", password: "" })
+    const [form, setForm] = useState({ username: "", password: "", results: [] })
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -29,17 +29,24 @@ export default function Auth() {
             body: JSON.stringify(form)
         }
 
-        fetch("http://localhost:3000/" + endpoint, config)
+        fetch("http://localhost:3000" + endpoint, config)
                 .then(r => r.json())
                 .then(userData => {
+                    console.log("userdata from fetch ======>", userData)
                     if (userData.errors) {
                         alert(userData.errors)
                     }
-
+                    
                     localStorage.token = userData.token
+                    
                     dispatch({
                         type: "SET_USER",
                         payload: userData
+                    })
+
+                    dispatch({
+                        type: "SET_RESULTS",
+                        payload: userData.results
                     })
                     
                     history.push("/guide")

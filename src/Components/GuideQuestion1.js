@@ -2,6 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 
 const GuideQuestion1 = ({ setContent }) => {
+
+    // grab user info from the store
+    const user = useSelector(state => state.user)
+    console.log(user)
     
     return (
         <div className="guide-container">
@@ -10,6 +14,8 @@ const GuideQuestion1 = ({ setContent }) => {
             <button onClick={() => setContent("Q2")}>Yes! Next Question.</button>
             <button onClick={() => setContent("Q1a")}>I could use a snack.</button>
             <button onClick={() => setContent("Q1b")}>No, I need a meal.</button>
+            <br />
+            <button id="helperbtn" onClick={() => setContent("Intro")}>START OVER</button>
         </div>
     );
   };

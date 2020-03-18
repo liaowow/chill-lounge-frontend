@@ -26,7 +26,7 @@ function BoardCard({ board }) {
         <div className="board-card">
             <img src={board.cocktail} alt={board.cocktail} />
             <h3>{board.user.username} was here!</h3>
-            <h6>{board.message}</h6>
+            <h5>{board.message}</h5>
         </div>
     )
 }

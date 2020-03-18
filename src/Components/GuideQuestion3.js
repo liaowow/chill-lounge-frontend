@@ -10,6 +10,8 @@ const GuideQuestion3 = ({ setContent }) => {
             <img src={require('../assets/stretching.gif')} alt="stretching gif" />
             <button onClick={() => setContent("Q4")}>No, my body feels fine.</button>
             <button onClick={() => setContent("Q3a")}>Yes, something hurts.</button>
+            <br />
+            <button id="helperbtn" onClick={() => setContent("Intro")}>START OVER</button>
         </div>
     );
   };

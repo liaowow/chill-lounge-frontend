@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux'
+
 import Nav from '../Components/Nav'
 import GuideIntro from '../Components/GuideIntro'
 import GuideQuestion1 from '../Components/GuideQuestion1'
@@ -18,25 +18,21 @@ import GuideQuestion5b from '../Components/GuideQuestion5b'
 
 export default function Guide() {
 
-  // // grab user info from the store
-  // const user = useSelector(state => state.user.user)
-  // console.log(user.username)
-
   // // set states of user results
-  // const [sleep, setSleep] = useState(0)
   // const [eat, setEat] = useState(0)
+  // const [sleep, setSleep] = useState(0)
   // const [exercise, setExercise] = useState(0)
   // const [mood, setMood] = useState(0)
 
   // // store user results
   // const userResults = {
-  //   sleep,
   //   eat,
+  //   sleep,
   //   exercise,
   //   mood
   // }
 
-  // set state of guide content, divided by page number
+  // set state of guide content
   const [content, setContent] = useState("intro")
 
   // render guide content dynamically
@@ -67,7 +63,7 @@ export default function Guide() {
       case "Q5a":
         return <GuideQuestion5a setContent={setContent} />      
       case "Q5b":
-        return <GuideQuestion5b setContent={setContent} />      
+        return <GuideQuestion5b setContent={setContent} />       
       default:
         return <GuideIntro setContent={setContent} />
     }

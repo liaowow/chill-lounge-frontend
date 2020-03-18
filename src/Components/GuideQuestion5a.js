@@ -9,6 +9,8 @@ const GuideQuestion5a = ({ setContent }) => {
             <h3>You’re not trying to burn calories or get to a particular destination; you’re just taking a pleasant jaunt. Enjoy it!</h3>
             <button >I will walk/ride later.</button>
             <button >OK. I'm back from my walk/ride.</button>
+            <br />
+            <button id="helperbtn" onClick={() => setContent("Intro")}>START OVER</button>
         </div>
     );
   };

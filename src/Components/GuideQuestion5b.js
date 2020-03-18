@@ -6,7 +6,7 @@ const GuideQuestion5b = ({ setContent }) => {
     return (
         <div className="guide-container">
             <h3>No worries! Here are some alternatives:</h3>
-            <ul>
+            <ul text-align="left">
                 <li>Just sit outside for some fresh air</li>
                 <li>Bouncing on Bed</li>
                 <li>Dancing</li>
@@ -14,6 +14,8 @@ const GuideQuestion5b = ({ setContent }) => {
             </ul>
             <button >OK, I did some of those.</button>
             <button >I will do it later.</button>
+            <br />
+            <button id="helperbtn" onClick={() => setContent("Intro")}>START OVER</button>
         </div>
     );
   };

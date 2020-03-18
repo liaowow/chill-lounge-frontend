@@ -9,6 +9,8 @@ const GuideQuestion2 = ({ setContent }) => {
             <h3>Did you get enough sleep over the last 24 hours?</h3>
             <button onClick={() => setContent("Q3")}>Yes, I am well-rested.</button>
             <button onClick={() => setContent("Q2a")}>No, I didn't sleep well.</button>
+            <br />
+            <button id="helperbtn" onClick={() => setContent("Intro")}>START OVER</button>
         </div>
     );
   };
