@@ -5,13 +5,4 @@ const setUser = (userObj) => {
     }
 }
 
-const logOut = () => {
-    return {
-        type: "LOG_OUT"
-    }
-}
-
-export default {
-    setUser,
-    logOut
-}
+export default setUser

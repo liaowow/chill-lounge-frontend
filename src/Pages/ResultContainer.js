@@ -2,23 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 import Nav from '../Components/Nav'
 import Calendar from 'react-calendar'
-import Guide from './GuideContainer'
+import { useHistory } from 'react-router-dom'
 
 export default function Results() {
 
+    const history = useHistory()
     const user = useSelector(state => state.user)
-    console.log(user)
-    // RETURN VALUE if user has results
-    if (user.results !== []) {
-        return (
-            <div>
-                <Nav />
-                <div className="board-container">
-                    {user.results.map(result => <ResultCard result={result} key={result.id} />)}
-                </div>
-            </div>
-        )
-    }
 
     function ResultCard({ result }) {
         return (
@@ -34,20 +23,36 @@ export default function Results() {
         )
     }
 
-    // RETURN VALUE if user doesn't have any results
-    return (
-        <div>
-            <Nav />
-            <div className="result-wrapper">
-                <div className="result-calendar">
-                    <Calendar />
-                </div>
-                <div className="result-report">
-                    <h3>Hi {user.user.username}.</h3>
-                    <p>Looks like you haven't completed our guide yet.</p>
-                    <button>Start Guide</button>
+    function handleStartGuide() {
+        return history.push("/guide")
+    }
+
+    // RETURN VALUE if user has results
+    if (user.results.length) {
+        return (
+            <div>
+                <Nav />
+                <div className="board-container">
+                    {user.results.map(result => <ResultCard result={result} key={result.id} />)}
                 </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        // RETURN VALUE if user doesn't have any results
+        return (
+            <div>
+                <Nav />
+                <div className="result-wrapper">
+                    <div className="result-calendar">
+                        <Calendar />
+                    </div>
+                    <div className="result-report">
+                        <h3>Hi {user.user.username}.</h3>
+                        <p>Looks like you haven't completed our guide yet.</p>
+                        <button onClick={handleStartGuide}>Start Guide</button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }

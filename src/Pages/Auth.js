@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 export default function Auth() {
-    const user = useSelector(state => state.user)
-    console.log('user from the store ===> ', user);
+
+    const dispatch = useDispatch()
+    const history = useHistory()
 
     const [login, setLogin] = useState(true)
     const [form, setForm] = useState({ username: "", password: "", results: [] })
-    const dispatch = useDispatch()
-    const history = useHistory()
 
     function handleChange(e) {
         setForm({ 
