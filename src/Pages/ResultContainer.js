@@ -8,6 +8,7 @@ export default function Results() {
 
     const history = useHistory()
     const user = useSelector(state => state.user)
+    const userResults = useSelector(state => state.results)
 
     function ResultCard({ result }) {
         return (
@@ -28,12 +29,12 @@ export default function Results() {
     }
 
     // RETURN VALUE if user has results
-    if (user.results.length) {
+    if (userResults.length) {
         return (
             <div>
                 <Nav />
                 <div className="board-container">
-                    {user.results.map(result => <ResultCard result={result} key={result.id} />)}
+                    {userResults.map(result => <ResultCard result={result} key={result.id} />)}
                 </div>
             </div>
         )
@@ -47,7 +48,7 @@ export default function Results() {
                         <Calendar />
                     </div>
                     <div className="result-report">
-                        <h3>Hi {user.user.username}.</h3>
+                        <h3>Hi, {user.user.username}.</h3>
                         <p>Looks like you haven't completed our guide yet.</p>
                         <button onClick={handleStartGuide}>Start Guide</button>
                     </div>

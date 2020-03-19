@@ -17,7 +17,7 @@ export default function Boards() {
           }
           dispatch(action)
         })
-    })
+    }, [])
 
     // grab board cards from the store 
     const boards = useSelector(state => state.boards)

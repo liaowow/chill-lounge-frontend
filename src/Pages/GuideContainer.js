@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Nav from '../Components/Nav'
 import GuideIntro from '../Components/GuideIntro'
 import GuideQuestion1 from '../Components/GuideQuestion1'
@@ -22,13 +22,15 @@ export default function Guide() {
 
   // grab user info from the store
   const user = useSelector(state => state.user.user)
-  console.log("user from the store =====>", user)
+
+  const dispatch = useDispatch()
 
   // set states of user results
   const [eat, setEat] = useState(0)
   const [sleep, setSleep] = useState(0)
   const [exercise, setExercise] = useState(0)
   const [mood, setMood] = useState(0)
+
 
   // store user results
   const userResults = {
@@ -38,7 +40,6 @@ export default function Guide() {
     exercise,
     mood
   }
-  console.log("state in user result", userResults)
 
   // POST a new user result to the backend
   const handleUserResults = () => {
@@ -52,8 +53,15 @@ export default function Guide() {
       body: JSON.stringify(userResults)
     };
     fetch('http://localhost:3000' + '/results', config)
-      // .then(r => r.json())
-      // .then(console.log);
+      .then(r => r.json())
+      .then(resultsData => {
+        const action = {
+          type: 'SET_RESULTS',
+          payload: resultsData.user.results
+        }
+        console.log("ACTION TO DISPATCH NEW RESULT:", action)
+        dispatch(action)
+      });
   }
 
 

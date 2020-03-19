@@ -11,9 +11,9 @@ const GuideFinale = ({ setContent }) => {
     
     return (
         <div className="guide-container">
-            <h3>Congratulations on completing the guide!</h3>
+            <h2>Congratulations on completing the guide!</h2>
             <h3>What would you like to do next?</h3>
-            <button onClick={() => setContent("ToBoard")} >🍹Claim my free cocktail🍹</button>
+            <button onClick={() => setContent("ToBoard")} >🍹Claim my free cocktail 🍹</button>
             <button onClick={handleWellnessReport}>See my wellness report</button>
             <br />
             <button id="helperbtn" onClick={() => setContent("Intro")}>START OVER</button>

@@ -31,9 +31,11 @@ export default function Auth() {
         fetch("http://localhost:3000" + endpoint, config)
                 .then(r => r.json())
                 .then(userData => {
-                    console.log("userdata from fetch ======>", userData)
+                    // console.log("userdata from fetch ======>", userData)
                     if (userData.errors) {
                         alert(userData.errors)
+                        setForm({ username: "", password: "", results: [] })
+                        return history.push("/")
                     }
                     
                     localStorage.token = userData.token
@@ -56,11 +58,11 @@ export default function Auth() {
 
     function toggleLogInBtn() {
         return login ? (
-            <button onClick={() => setLogin(false)}>
-                Don't have an account? Sign up
+            <button className="login-toggle" onClick={() => setLogin(false)}>
+                First time here? Click to sign up
             </button>
         ) : (
-            <button onClick={() => setLogin(true)}>
+            <button className="login-toggle" onClick={() => setLogin(true)}>
                 Already have an account? Log in here
             </button>
         )

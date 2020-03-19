@@ -13,7 +13,6 @@ const GuideToBoard = () => {
     const [cocktail, setCocktail] = useState("")
     const [message, setMessage] = useState("")
     const cardData = { user_id: user.id, cocktail, message }
-    console.log(cardData)
 
     useEffect(() => {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")

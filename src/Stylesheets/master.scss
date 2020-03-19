@@ -39,8 +39,10 @@ a {
 
 nav {
   display: flex;
+  // position: fixed;
+  margin: 0px;
   justify-content: space-evenly;
-  background-color: #262626c7;
+  background-color: #262626ec;
   width: 100%;
   padding: 2vh 0;
 }
@@ -62,7 +64,6 @@ nav {
   form {
     text-align: center;
     padding: 2em;
-    // transform: translate(-50%,-50%);
     background: rgba(62, 65, 66, 0.562);
     display: flex;
     flex-direction: column;
@@ -76,18 +77,23 @@ nav {
       margin: 5px;
       border: 0;
       border-radius: 10px;
+      font-size: 1em;
     }
     input[type='submit'] {
       width: 20%;
-      height: 10%;
+      height: 15%;
       border: 0;
       border-radius: 30px;
+      font-size: 1em;
+      margin: 5px;
     }
     input[type="submit"]:hover{
       background: #262626c7;
       color: white;
+      cursor: pointer;
     }
   }
+
   button {
     width: 50%;
     height: 10%;
@@ -95,12 +101,20 @@ nav {
     margin: 5px;
     border: 0;
     border-radius: 30px;
+    font-size: 1em;
   }
   button:hover{
     background: #262626c7;
     color: white;
+    cursor: pointer;
+  }
+  .login-toggle {
+    width: 50%;
+    border-radius: 0px;
+    background: #ffffffe3;
   }
 }
+
 
 .guide-container {
   background: rgba(255, 255, 255, 0.87);
@@ -108,12 +122,11 @@ nav {
   text-align: center;
   padding: 2em;
   margin: 0 auto;
-  margin-top: 1em;
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // height: 70%;
   width: 60%;
 
   h2 {
@@ -144,6 +157,7 @@ nav {
   button:hover{
     background: #262626c7;
     color: white;
+    cursor: pointer;
   }
 
   #helperbtn {
