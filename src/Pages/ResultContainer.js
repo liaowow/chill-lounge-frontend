@@ -15,13 +15,13 @@ export default function Results() {
         const dateFormat = new Date(result.created_at)
 
         return (
-            <div className="board-card">
+            <div>
                 <h2>{dateFormat.toLocaleString()}</h2>
                 <ul>
-                    <li>Eat: {result.eat === 0 ? "Almost there!" : "👍"}</li>
-                    <li>Sleep: {result.sleep === 0 ? "Almost there!" : "👍"}</li>
-                    <li>Exercise: {result.exercise === 0 ? "Almost there!" : "👍"}</li>
-                    <li>Mood: {result.mood === 0 ? "Almost there!" : "👍"}</li>
+                    <li>Eat <hr />{result.eat === 0 ? "Almost there!" : "👍"}</li>
+                    <li>Sleep<hr />{result.sleep === 0 ? "Almost there!" : "👍"}</li>
+                    <li>Exercise <hr />{result.exercise === 0 ? "Almost there!" : "👍"}</li>
+                    <li>Mood <hr />{result.mood === 0 ? "Almost there!" : "👍"}</li>
                 </ul>
             </div>
         )
@@ -33,11 +33,19 @@ export default function Results() {
 
     // RETURN VALUE if user has results
     if (userResults.length) {
+
+        userResults.reverse()
+
         return (
             <div>
                 <Nav />
-                <div className="board-container">
-                    {userResults.map(result => <ResultCard result={result} key={result.id} />)}
+                <div className="result-wrapper">
+                    <div className="result-calendar">
+                        <Calendar />
+                    </div>
+                    <div className="result-report">
+                        {userResults.map(result => <ResultCard result={result} key={result.id} />)}
+                    </div>
                 </div>
             </div>
         )
