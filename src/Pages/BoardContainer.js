@@ -1,24 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux'
 import Nav from '../Components/Nav'
-import { useDispatch } from 'react-redux'
 
 export default function Boards() {
     
-    // const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //   fetch('http://localhost:3000/boards')
-    //     .then(r => r.json())
-    //     .then(boards => {
-    //       const action = {
-    //         type: 'SET_BOARDS',
-    //         payload: boards.reverse()
-    //       }
-    //       dispatch(action)
-    //     })
-    // })
-
     // grab board cards from the store 
     const boards = useSelector(state => state.boards)
     console.log("BOARDS IN THE STORE:", boards)
@@ -39,9 +24,6 @@ export default function Boards() {
 }
 
 function BoardCard({ board }) {
-
-    // grab user info from the store
-    // const boards = useSelector(state => state.boards)
 
     return (
         <div className="board-card">

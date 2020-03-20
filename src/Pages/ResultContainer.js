@@ -11,9 +11,12 @@ export default function Results() {
     const userResults = useSelector(state => state.results)
 
     function ResultCard({ result }) {
+
+        const dateFormat = new Date(result.created_at)
+
         return (
             <div className="board-card">
-                <h3>Date: {result.created_at}</h3>
+                <h2>{dateFormat.toLocaleString()}</h2>
                 <ul>
                     <li>Eat: {result.eat === 0 ? "Almost there!" : "👍"}</li>
                     <li>Sleep: {result.sleep === 0 ? "Almost there!" : "👍"}</li>

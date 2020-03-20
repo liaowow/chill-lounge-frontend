@@ -52,7 +52,7 @@ export default function Guide() {
       },
       body: JSON.stringify(userResults)
     };
-    fetch('http://localhost:3000' + '/results', config)
+    fetch('http://localhost:3000/results', config)
       .then(r => r.json())
       .then(resultsData => {
         // update user results on the frontend
