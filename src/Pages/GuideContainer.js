@@ -55,11 +55,12 @@ export default function Guide() {
     fetch('http://localhost:3000' + '/results', config)
       .then(r => r.json())
       .then(resultsData => {
+        // update user results on the frontend
         const action = {
           type: 'SET_RESULTS',
           payload: resultsData.user.results
         }
-        console.log("ACTION TO DISPATCH NEW RESULT:", action)
+        // console.log("ACTION TO DISPATCH NEW RESULT:", action)
         dispatch(action)
       });
   }

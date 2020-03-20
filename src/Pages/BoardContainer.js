@@ -5,22 +5,23 @@ import { useDispatch } from 'react-redux'
 
 export default function Boards() {
     
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    useEffect(() => {
-      fetch('http://localhost:3000/boards')
-        .then(r => r.json())
-        .then(boards => {
-          const action = {
-            type: 'SET_BOARDS',
-            payload: boards.reverse()
-          }
-          dispatch(action)
-        })
-    }, [])
+    // useEffect(() => {
+    //   fetch('http://localhost:3000/boards')
+    //     .then(r => r.json())
+    //     .then(boards => {
+    //       const action = {
+    //         type: 'SET_BOARDS',
+    //         payload: boards.reverse()
+    //       }
+    //       dispatch(action)
+    //     })
+    // })
 
     // grab board cards from the store 
     const boards = useSelector(state => state.boards)
+    console.log("BOARDS IN THE STORE:", boards)
 
     const renderBoards = () => {
         return !boards.length ? null : boards.map(board => <BoardCard board={board} key={board.id} />)
@@ -30,7 +31,6 @@ export default function Boards() {
         <div>
             <Nav />
             <div className="board-container">
-                {/* <h1>Messages across the Chill Lounge</h1> */}
                 {renderBoards()}
             </div>
         </div>
@@ -39,11 +39,15 @@ export default function Boards() {
 }
 
 function BoardCard({ board }) {
+
+    // grab user info from the store
+    // const boards = useSelector(state => state.boards)
+
     return (
         <div className="board-card">
             <img src={board.cocktail} alt={board.cocktail} />
-            <h3>{board.user.username} was here!</h3>
-            <h5>{board.message}</h5>
+            <h2>{board.user.username} was here!</h2>
+            <h3>{board.message}</h3>
         </div>
     )
 }

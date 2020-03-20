@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 const GuideToBoard = () => {
 
     const history = useHistory()
+    const dispatch = useDispatch()
 
     // grab user info from the store
     const user = useSelector(state => state.user.user)
@@ -48,7 +49,6 @@ const GuideToBoard = () => {
     }
 
     // POST the new card to backend...
-    // ...and redirect to Message Board page
     function handleNewBoardCard() {
         const config = {
             method: "POST",
@@ -59,9 +59,17 @@ const GuideToBoard = () => {
         }
 
         fetch("http://localhost:3000/boards", config)
-        // .then(r => r.json())
-        // .then(console.log)
-
+        .then(r => r.json())
+        .then(boardsData => {
+            // update boards on the frontend
+            const action = {
+                type: 'SET_BOARDS',
+                payload: boardsData.reverse()
+            }
+            console.log("ACTION TO DISPATCH NEW BOARDS:", action)
+            dispatch(action)
+        })
+        // redirect to Message Board page
         history.push("/boards")
 
     }
@@ -71,8 +79,8 @@ const GuideToBoard = () => {
         return (
             <div className="board-card">
                 <img src={cocktail} alt={cocktail} />
-                <h3>{user.username} was here!</h3>
-                <h5>{message}</h5>
+                <h2>{user.username} was here!</h2>
+                <h3>{message}</h3>
             </div>
         )
     }

@@ -33,24 +33,29 @@ export default function Auth() {
                 .then(userData => {
                     // console.log("userdata from fetch ======>", userData)
                     if (userData.errors) {
+                        // debugger
                         alert(userData.errors)
                         setForm({ username: "", password: "", results: [] })
                         return history.push("/")
                     }
                     
-                    localStorage.token = userData.token
-                    
-                    dispatch({
-                        type: "SET_USER",
-                        payload: userData
-                    })
+                    if (userData.token) {
 
-                    dispatch({
-                        type: "SET_RESULTS",
-                        payload: userData.results
-                    })
-                    
-                    history.push("/guide")
+                        localStorage.token = userData.token
+                        
+                        dispatch({
+                            type: "SET_USER",
+                            payload: userData
+                        })
+    
+                        dispatch({
+                            type: "SET_RESULTS",
+                            payload: userData.results
+                        })
+                        
+                        history.push("/guide")
+                    }
+
         })
 
     }

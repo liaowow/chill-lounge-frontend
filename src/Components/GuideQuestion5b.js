@@ -9,7 +9,7 @@ const GuideQuestion5b = ({ setContent }) => {
                 <li>Just sit outside for some fresh air</li>
                 <li>Bouncing on Bed</li>
                 <li>Dancing</li>
-                <li>Wiggling, squirming, jiggling around; being silly and active and having fun!</li>
+                <li>Wiggling, squirming, jiggling around; <br />being silly and active and having fun!</li>
             </ul>
             <button onClick={() => setContent("GuideFinale")}>OK, I did some of those.</button>
             <button onClick={() => setContent("GuideFinale")}>I will do it later.</button>
