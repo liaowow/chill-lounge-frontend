@@ -6,7 +6,7 @@ export default function Boards() {
     
     // grab board cards from the store 
     const boards = useSelector(state => state.boards)
-    console.log("BOARDS IN THE STORE:", boards)
+    // console.log("BOARDS IN THE STORE:", boards)
 
     const renderBoards = () => {
         return !boards.length ? null : boards.map(board => <BoardCard board={board} key={board.id} />)

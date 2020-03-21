@@ -180,17 +180,52 @@ nav {
 
 .result-wrapper {
   display: grid;
-  grid-template-columns: 40% 60%;
   padding: 2em;
 }
 
 .result-calendar {
+  margin-top: 2em;
   padding: 1em;
+  display: flex;
+  position: fixed;
+  top: 20;
+}
+
+.react-calendar__month-view__weekdays {
+  color: gray;
+}
+
+.react-calendar__navigation button {
+  font-size: 1em;
 }
 
 .result-report {
   padding: 1em;
+  padding-left: 30%;
   text-align: center;
+
+  h3 {
+    width: 100%;
+    font-size: 1.5em;
+  }
+
+  button {
+    width: 50%;
+    height: 10%;
+    padding: 10px;
+    margin: 5px;
+    border: 0.5;
+    border-radius: 30px;
+    font-size: 1em;
+    outline: none;
+  }
+
+  button:hover{
+    background: #262626c7;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
 
   ul {
     columns: 2;
