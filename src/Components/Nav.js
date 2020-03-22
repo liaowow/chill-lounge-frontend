@@ -20,6 +20,7 @@ export default function Nav() {
             <Link to="/guide">GUIDE</Link>
             <Link to="/results">MY WELLNESS REPORT</Link>
             <Link to="/boards">MESSAGE BOARD</Link>
+            <a href="https://github.com/liaowow/chill-lounge-frontend" target="_blank" rel="noopener noreferrer">ABOUT</a>
             <Link onClick={clearLocalStorage} to="/">LOG OUT</Link>
         </nav>
     )

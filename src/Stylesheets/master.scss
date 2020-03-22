@@ -274,3 +274,23 @@ nav {
   }
 
 }
+
+.search {
+  width: 50%;
+  text-align: center;
+  // position: fixed;
+  display: block;
+  margin: auto;
+  padding: 1rem;
+}
+
+.searchTerm {
+  text-align: center;
+  width: 100%;
+  border: 3px solid rgb(27, 27, 27);
+  padding: 5px;
+  height: 2.5rem;
+  border-radius: 30px;
+  outline: none;
+  font-size: 1rem;
+}
