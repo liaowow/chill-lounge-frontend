@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 const GuideIntro = ({ setContent }) => {
 
     // grab user info from the store
-    const user = useSelector(state => state.user.user)
+    const user = useSelector(state => state.user)
     
     return (
         <div>  

@@ -21,7 +21,10 @@ import GuideToBoard from '../Components/GuideToBoard'
 export default function Guide() {
 
   // grab user info from the store
-  const user = useSelector(state => state.user.user)
+  const user = useSelector(state => {
+    return state.user
+  })
+  console.log("USER FROM STORE:", user)
 
   const dispatch = useDispatch()
 
@@ -111,7 +114,7 @@ export default function Guide() {
   return (
     <div>  
       <Nav />
-      {renderGuide()}
+      {user ? renderGuide() : null}
     </div>
   );
 

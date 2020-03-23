@@ -66,7 +66,7 @@ const GuideToBoard = () => {
                 type: 'SET_BOARDS',
                 payload: boardsData.reverse()
             }
-            console.log("ACTION TO DISPATCH NEW BOARDS:", action)
+            // console.log("ACTION TO DISPATCH NEW BOARDS:", action)
             dispatch(action)
         })
         // redirect to Message Board page

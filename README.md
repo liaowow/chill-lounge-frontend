@@ -1,7 +1,7 @@
 # Chill Lounge
 
 ## Introduction
-Welcome to Chill Lounge, a personalized self-care guide inspired by [youfeellikeshit.com](https://youfeellikeshit.com/). It is a single-page application built with React App through implementations of Hooks and Redux.
+Welcome to Chill Lounge, a personalized self-care guide inspired by [youfeellikeshit.com](https://youfeellikeshit.com/). It is a single-page application built with React App and with implementation of Hooks and Redux.
 
 ## Features
 Chill Lounge features step-by-step guide based on user input.
@@ -17,8 +17,8 @@ The entries also track a user's current mood as it was entered at the time of cr
 ## Dev Tools
 - Front End:
   - `React Calendar` - serves as the interface for this app's wellness report calendar
-  - `CocktailDB` - serves as source for this app's external cocktail images API
-  - `Advice Slip` - serves as source for this app's external message API
+  - `CocktailDB API` - serves as source for this app's external cocktail images API
+  - `Advice Slip API` - serves as source for this app's external message API
 
 - Back End:
   - `Ruby on Rails` - hosts the database server

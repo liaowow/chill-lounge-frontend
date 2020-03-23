@@ -45,7 +45,7 @@ export default function Auth() {
                         
                         dispatch({
                             type: "SET_USER",
-                            payload: userData
+                            payload: userData.user
                         })
     
                         dispatch({

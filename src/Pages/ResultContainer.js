@@ -10,6 +10,7 @@ export default function Results() {
     const history = useHistory()
     const user = useSelector(state => state.user)
     const userResults = useSelector(state => state.results)
+    console.log("USER RESULT FROM STORE:", userResults)
     // set states of calendar date
     const [calDate, setCalDate] = useState(new Date())
     // set states of results (initialized with results from store AND latest on top)
@@ -78,7 +79,7 @@ export default function Results() {
             <Nav />
             <div className="result-wrapper">
                 <div className="result-report">
-                    <h3>Hi, {user.user.username}.</h3>
+                    <h3>Hi, {user.username}.</h3>
                     <h3>Looks like you don't have a wellness report on this date.</h3>
                     <button onClick={handleStartGuide}>Start Guide</button>
                 </div>

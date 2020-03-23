@@ -13,34 +13,26 @@ export default function Boards() {
     const handleSearchChange = e => {
         setSearchTerm(e.target.value)
     }
-    console.log("Search Term ===>", searchTerm)
 
-    // modify board cards based on search terms
-    // make them case insensitive
-    const lowerCaseSearchTerm = searchTerm.toLowerCase()
-    const modifiedBoards = boards.filter(board => board.user.username.toLowerCase().includes(lowerCaseSearchTerm) || board.message.toLowerCase().includes(lowerCaseSearchTerm) || "was here!".includes(lowerCaseSearchTerm))
-
-    // set states of boards, initializing with modifiedBoards
-    const [myBoards, setMyBoards] = useState(modifiedBoards)
-    
     // handle checkbox toggle
     const [myCardChecked, setMyCardChecked] = useState(false)
     const handleCheckBoxChange = e => {
         setMyCardChecked(!myCardChecked)
-        renderMyCards(e.target.checked)
     }
-    
-    // modify board cards based on checkbox status
-    const renderMyCards = checked => {
-        const userCards = myBoards.filter(board => board.user.id === userInfo.user.id)
-        console.log("check status:", checked)
-        console.log("myBoards when checked ===>", myBoards)
-        return checked ? setMyBoards(modifiedBoards) : setMyBoards(userCards)
-    }
-    
+
+    // modify boards based on search term (and make them case insensitive)
+    const lowerCaseSearchTerm = searchTerm.toLowerCase()
+    const modifiedBoards = boards.filter(board => {
+        if (myCardChecked === false) {
+            return (board.user.username.toLowerCase().includes(lowerCaseSearchTerm) || board.message.toLowerCase().includes(lowerCaseSearchTerm) || "was here!".includes(lowerCaseSearchTerm))
+        } else {
+            return (board.user.username.toLowerCase().includes(lowerCaseSearchTerm) || board.message.toLowerCase().includes(lowerCaseSearchTerm) || "was here!".includes(lowerCaseSearchTerm)) && (board.user.id === userInfo.id)
+        }
+    })
+
     // render boards
-    const renderBoards = (myBoards) => {
-        return !myBoards.length ? null : myBoards.map(board => <BoardCard board={board} key={board.id} />)
+    const renderBoards = (boardsArr) => {
+        return !boardsArr.length ? null : boardsArr.map(board => <BoardCard board={board} key={board.id} />)
     }
 
     return (
@@ -69,16 +61,16 @@ function SearchBar({ searchTerm, handleSearchChange, myCardChecked, handleCheckB
     return (
         <div className="search">
          <input type="text" 
-                className="searchTerm" 
+                className="searchTerm"
                 placeholder="Type here to search"
                 value={searchTerm}
                 onChange={handleSearchChange} />
-        {/* <label htmlFor="myCard">Show only my cards:</label>
+        <label htmlFor="myCard">Show only my cards:</label>
           <input type="checkbox" 
                  id="myCard" 
-                 name="sortAgeChecked" 
+                 name="myCardChecked" 
                  checked={myCardChecked} 
-                 onChange={handleCheckBoxChange} /> */}
+                 onChange={handleCheckBoxChange} />
         </div>
       )
 }
