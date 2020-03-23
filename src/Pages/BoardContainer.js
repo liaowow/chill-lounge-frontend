@@ -62,7 +62,7 @@ function SearchBar({ searchTerm, handleSearchChange, myCardChecked, handleCheckB
         <div className="search">
          <input type="text" 
                 className="searchTerm"
-                placeholder="Type here to search"
+                placeholder="Type here to search..."
                 value={searchTerm}
                 onChange={handleSearchChange} />
         <label htmlFor="myCard">Show only my cards:</label>

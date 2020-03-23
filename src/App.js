@@ -17,8 +17,18 @@ export default function App() {
       }
 
       fetch('http://localhost:3000/', config)
-      .then(r => r.json())
-      .then(userObj => dispatch(setUser(userObj)))
+        .then(r => r.json())
+        .then(userObj => {
+            dispatch({
+              type: "SET_USER",
+              payload: userObj
+            })
+
+            dispatch({
+                type: "SET_RESULTS",
+                payload: userObj.results
+            })
+        })
     }
 
     fetch('http://localhost:3000/boards')
