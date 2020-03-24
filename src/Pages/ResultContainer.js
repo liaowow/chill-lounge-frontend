@@ -10,7 +10,6 @@ export default function Results() {
     const history = useHistory()
     const user = useSelector(state => state.user)
     const userResults = useSelector(state => state.results)
-    console.log("USER RESULT FROM STORE:", userResults)
     // set states of calendar date
     const [calDate, setCalDate] = useState(new Date())
     // set states of results (initialized with results from store AND latest on top)
@@ -25,10 +24,10 @@ export default function Results() {
             <div>
                 <h2>{dateFormat.toLocaleString()}</h2>
                 <ul>
-                    <li>Eat <hr />{result.eat === 0 ? "Almost there!" : "👍"}</li>
+                    <li>Eat<hr />{result.eat === 0 ? "Almost there!" : "👍"}</li>
                     <li>Sleep<hr />{result.sleep === 0 ? "Almost there!" : "👍"}</li>
-                    <li>Exercise <hr />{result.exercise === 0 ? "Almost there!" : "👍"}</li>
-                    <li>Mood <hr />{result.mood === 0 ? "Almost there!" : "👍"}</li>
+                    <li>Exercise<hr />{result.exercise === 0 ? "Almost there!" : "👍"}</li>
+                    <li>Mood<hr />{result.mood === 0 ? "Almost there!" : "👍"}</li>
                 </ul>
             </div>
         )
@@ -38,8 +37,6 @@ export default function Results() {
     function handleStartGuide() {
         return history.push("/guide")
     }
-
-    // console.log("STATE OF RESULTS:", resultArr)
 
     // change results based on calendar date click
     function onChange (calDate) {

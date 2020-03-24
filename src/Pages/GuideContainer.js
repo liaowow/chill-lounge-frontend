@@ -21,10 +21,7 @@ import GuideToBoard from '../Components/GuideToBoard'
 export default function Guide() {
 
   // grab user info from the store
-  const user = useSelector(state => {
-    return state.user
-  })
-  console.log("USER FROM STORE:", user)
+  const user = useSelector(state => state.user)
 
   const dispatch = useDispatch()
 

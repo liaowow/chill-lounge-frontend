@@ -8,7 +8,7 @@ const GuideToBoard = () => {
     const dispatch = useDispatch()
 
     // grab user info from the store
-    const user = useSelector(state => state.user.user)
+    const user = useSelector(state => state.user)
 
     // set states of the card info
     const [cocktail, setCocktail] = useState("")

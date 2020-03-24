@@ -8,7 +8,7 @@ export default function Boards() {
     const boards = useSelector(state => state.boards)
     const userInfo = useSelector(state => state.user)
 
-    // handle search-related functions
+    // handle search
     const [searchTerm, setSearchTerm] = useState("")
     const handleSearchChange = e => {
         setSearchTerm(e.target.value)
@@ -20,7 +20,7 @@ export default function Boards() {
         setMyCardChecked(!myCardChecked)
     }
 
-    // modify boards based on search term (and make them case insensitive)
+    // modify boards based on checkbox and searchTerm (and make searches case insensitive)
     const lowerCaseSearchTerm = searchTerm.toLowerCase()
     const modifiedBoards = boards.filter(board => {
         if (myCardChecked === false) {
@@ -38,7 +38,10 @@ export default function Boards() {
     return (
         <div>
             <Nav />
-            <SearchBar searchTerm={searchTerm} handleSearchChange={handleSearchChange} myCardChecked={myCardChecked} handleCheckBoxChange={handleCheckBoxChange} />
+            <SearchBar searchTerm={searchTerm} 
+                       handleSearchChange={handleSearchChange} 
+                       myCardChecked={myCardChecked} 
+                       handleCheckBoxChange={handleCheckBoxChange} />
             <div className="board-container">
                 {renderBoards(modifiedBoards)}
             </div>
