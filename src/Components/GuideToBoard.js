@@ -58,7 +58,7 @@ const GuideToBoard = () => {
             body: JSON.stringify(cardData)
         }
 
-        fetch("http://localhost:3000/boards", config)
+        fetch("https://secret-cove-14662.herokuapp.com/boards", config)
         .then(r => r.json())
         .then(boardsData => {
             // update boards on the frontend

@@ -28,7 +28,7 @@ export default function Auth() {
             body: JSON.stringify(form)
         }
 
-        fetch("http://localhost:3000" + endpoint, config)
+        fetch("https://secret-cove-14662.herokuapp.com" + endpoint, config)
                 .then(r => r.json())
                 .then(userData => {
                     // console.log("userdata from fetch ======>", userData)

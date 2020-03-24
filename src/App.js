@@ -15,7 +15,7 @@ export default function App() {
         }
       }
 
-      fetch('http://localhost:3000/', config)
+      fetch('https://secret-cove-14662.herokuapp.com/', config)
         .then(r => r.json())
         .then(userObj => {
             dispatch({
@@ -30,7 +30,7 @@ export default function App() {
         })
     }
 
-    fetch('http://localhost:3000/boards')
+    fetch('https://secret-cove-14662.herokuapp.com/boards')
       .then(r => r.json())
       .then(boards => {
         const action = {
