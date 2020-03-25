@@ -25,8 +25,11 @@ When the user clicks "post it to message board", s/he will be redirected to Mess
   - `React Calendar` - serves as the component library for this app's wellness report calendar
   - `CocktailDB API` - serves as source for this app's external cocktail images API
   - `Advice Slip API` - serves as source for this app's external message API
+  - `Netlify` - hosts the frontend site for deployment
 
 - Back End:
   - `Ruby on Rails` - hosts the database server
+  - `PostgreSQL` - serves as the database management system 
   - `BCrypt` - encrypts/decrypts users' passwords
   - `JWT` - encodes/decodes the web tokens for user authentication
+  - `Heroku` - serves as the backend platform for deployment
