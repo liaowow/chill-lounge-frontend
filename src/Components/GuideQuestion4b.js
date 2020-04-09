@@ -1,15 +1,13 @@
 import React from 'react';
 
-const GuideQuestion4b = ({ setContent, setMood, handleUserResults }) => {
+const GuideQuestion4b = ({ setContent, setMood }) => {
 
     function handleSetMood1() {
         setMood(1)
-        handleUserResults()
         setContent("Q5")
     }
 
     function handleSetMood0() {
-        handleUserResults()
         setContent("Q5")
     }
     

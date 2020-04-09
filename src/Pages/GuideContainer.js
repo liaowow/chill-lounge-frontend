@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Nav from '../Components/Nav'
 import GuideIntro from '../Components/GuideIntro'
@@ -40,7 +40,7 @@ export default function Guide() {
     exercise,
     mood
   }
-
+  
   // POST a new user result to the backend
   const handleUserResults = () => {
     const config = {
@@ -51,7 +51,8 @@ export default function Guide() {
         Authorization: 'bearer ' + localStorage.token
       },
       body: JSON.stringify(userResults)
-    };
+    }
+
     fetch('https://secret-cove-14662.herokuapp.com/results', config)
       .then(r => r.json())
       .then(resultsData => {
@@ -62,7 +63,7 @@ export default function Guide() {
         }
         // console.log("ACTION TO DISPATCH NEW RESULT:", action)
         dispatch(action)
-      });
+      })
   }
 
 
@@ -89,15 +90,15 @@ export default function Guide() {
       case "Q4":
         return <GuideQuestion4 setContent={setContent} />
       case "Q4a":
-        return <GuideQuestion4a setContent={setContent} setMood={setMood} handleUserResults={handleUserResults} />      
+        return <GuideQuestion4a setContent={setContent} setMood={setMood}  />      
       case "Q4b":
-        return <GuideQuestion4b setContent={setContent} setMood={setMood} handleUserResults={handleUserResults} />         
+        return <GuideQuestion4b setContent={setContent} setMood={setMood} />         
       case "Q5":
         return <GuideQuestion5 setContent={setContent} />
       case "Q5a":
-        return <GuideQuestion5a setContent={setContent} />      
+        return <GuideQuestion5a setContent={setContent} handleUserResults={handleUserResults} />      
       case "Q5b":
-        return <GuideQuestion5b setContent={setContent} />
+        return <GuideQuestion5b setContent={setContent} handleUserResults={handleUserResults} />
       case "GuideFinale":
         return <GuideFinale setContent={setContent} />      
       case "ToBoard":
@@ -113,6 +114,6 @@ export default function Guide() {
       <Nav />
       {user ? renderGuide() : null}
     </div>
-  );
+  )
 
 }

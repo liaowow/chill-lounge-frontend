@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css';
+import 'react-calendar/dist/Calendar.css'
 
 export default function Results() {
 

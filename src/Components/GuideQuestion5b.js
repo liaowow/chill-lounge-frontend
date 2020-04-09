@@ -1,6 +1,11 @@
 import React from 'react';
 
-const GuideQuestion5b = ({ setContent }) => {
+const GuideQuestion5b = ({ setContent, handleUserResults }) => {
+
+    function handleGuideComplete() {
+        handleUserResults()
+        setContent("GuideFinale")
+    }
     
     return (
         <div className="guide-container">
@@ -11,8 +16,8 @@ const GuideQuestion5b = ({ setContent }) => {
                 <li>Dancing</li>
                 <li>Wiggling, squirming, jiggling around; <br />being silly and active and having fun!</li>
             </ul>
-            <button onClick={() => setContent("GuideFinale")}>OK, I did some of those.</button>
-            <button onClick={() => setContent("GuideFinale")}>I will do it later.</button>
+            <button onClick={handleGuideComplete}>OK, I did some of those.</button>
+            <button onClick={handleGuideComplete}>I will do it later.</button>
             <br />
             <button id="helperbtn" onClick={() => setContent("Intro")}>START OVER</button>
         </div>
