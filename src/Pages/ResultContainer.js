@@ -59,11 +59,11 @@ export default function Results() {
             <div>
                 <Nav />
                 <div className="result-wrapper">
-                    <div className="result-report">
-                        {resultArr.map(result => <ResultCard result={result} key={result.id} />)}
-                    </div>
                     <div className="result-calendar">
                         <Calendar onChange={onChange} value={calDate} />
+                    </div>
+                    <div className="result-report">
+                        {resultArr.map(result => <ResultCard result={result} key={result.id} />)}
                     </div>
                 </div>
             </div>
@@ -75,13 +75,13 @@ export default function Results() {
         <div>
             <Nav />
             <div className="result-wrapper">
+                <div className="result-calendar">
+                    <Calendar onChange={onChange} value={calDate} />
+                </div>
                 <div className="result-report">
                     <h3>Hi, {user.username}.</h3>
                     <h3>Looks like you don't have a wellness report on this date.</h3>
                     <button onClick={handleStartGuide}>Start Guide</button>
-                </div>
-                <div className="result-calendar">
-                    <Calendar onChange={onChange} value={calDate} />
                 </div>
             </div>
         </div>
